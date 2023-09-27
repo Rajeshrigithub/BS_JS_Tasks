@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task-6</title>
+<style>
+*{padding: 0;margin: 0;box-sizing: border-box;}
+.container{
+height: 100%;
+display: grid;
+justify-content: center;
+background-color: whitesmoke;
+flex-wrap: wrap;
+text-align: center;
+}
+.box{
+margin-top: 30px;
+padding: 20px ;
+width: 350px;
+height: 380px;
+text-align: center;
+border: 1px solid rgb(216, 211, 211);
+background-color: white;
+}
+.box.a{
+margin-top: 10px;
+height: 80px;
+}
+#hedding{
+font-size: 40px;
+font-weight: 400;
+font-family: Harlow Solid Italic;
+margin-bottom: 10px;
+}
+#int{
+width: 250px;
+height: 30px;
+margin: 20px 30px 10px 30px;
+background-color: whitesmoke;
+padding: 10px;
+border: 1px solid rgb(216, 211, 211);
+}
+#a{
+width: 250px;
+height: 30px;
+margin: 20px 30px 10px 30px;
+background-color: rgb(85, 85, 223);
+padding-bottom: 0px;
+border: 1px solid rgb(216, 211, 211);
+border-radius: 5px;
+color: white;
+cursor: pointer;
+}
+#pho{
+border-radius: 10px;
+cursor: pointer;
+}
+</style>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+<body>
+<div class="container">
+<div class="box">
+<img src=".\instagramlogo.png" alt="instagram">
+<div class="form-group">
+    <div class="input-group">
+        <span class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-user"></i></span>
+        </span>
+        <input id="name" name="name" class="input-1 form-control" placeholder="Username" type="text" required>
+        <div class="error-message" style="color: red;"></div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="input-group">
+        <span class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-lock"></i></span>
+        </span>
+        <input id="password" name="password" class="input-2 form-control" placeholder="password" type="password">
+        
+        <div class="error-message" style="color: red;"></div>
+    </div>
+</div>
+<div class="form-group">
+    <button type="button" class="col-md-12 btn btn-primary btn-lg btn-block mx-auto text-white" onclick="validateForm()">Login</button>
+</div>
+<input type="checkbox" name="remember_me" value="true" class="remember-me"> Remember me
+<a href="https://www.instagram.com/accounts/password/reset/" target="_blank">Forgot Password</a>
+</div><br><br>
+<p style="font-size: 18px;color: rgb(83, 77, 77);">Don't have an account!<span
+style="color: blue;cursor: pointer;">Sign up here</span></p>
+<br><br><br><br><br><br><br>
+</div>
+<script>
+    const usernameInput = document.querySelector('.input-1');
+    const passwordInput = document.querySelector('.input-2');
+    const loginButton = document.querySelector('.btn');
+    const errorMessages = document.querySelectorAll('.error-message');
+    function displayError(elementIndex, message) {
+        errorMessages[elementIndex].textContent = message;
+    }
+    function validateInputs() {
+        const usernameValue = usernameInput.value.trim();
+        const passwordValue = passwordInput.value.trim();
+        errorMessages.forEach((message) => {
+            message.textContent = '';
+        });
+        if (usernameValue === '') {
+            displayError(0, 'Username required');
+        }
+        if (passwordValue === '') {
+            displayError(1, 'Password required');
+        }
+        if (usernameValue !== '' && passwordValue !== '') {
+            console.log('Username:', usernameValue);
+            console.log('Password:', passwordValue);
+        }
+    }
+    loginButton.addEventListener('click', validateInputs);
+</script>
+</body>
+</html>
