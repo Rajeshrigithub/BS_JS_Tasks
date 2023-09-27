@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-4</title>
+</head>
+<body>
+    <button onclick="showDate()">Show Date</button><br>
+    <p id="output1"></p>
+    <button onclick="showTime()">Show Time</button>
+    <p id="output2"></p>
+
+    <script>
+        function showDate() {
+            const currentDate = new Date("7/March/2023");
+            const day = currentDate.getDate();
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const month = monthNames[currentDate.getMonth()];
+            const year = currentDate.getFullYear();
+            const formattedDate = `${day}/${month}/${year}`;
+            document.getElementById('output1').innerText = formattedDate;
+        }
+
+        function showTime() {
+            const formattedTime= new Date("2023-03-07")
+            document.getElementById('output2').innerText = formattedTime;
+        }
+    </script>
+</body>
+</html>

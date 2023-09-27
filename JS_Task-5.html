@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-5</title>
+    <style>
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 1px solid white;
+            border-radius: 5px;
+            margin-top: 50px;
+        }
+        .error {
+            color: rgb(234, 22, 22);
+        }
+        .error-border {
+            border-width: 2px;
+            border-color: rgb(245, 25, 25);
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="name">&nbsp;&nbsp;&nbsp;&nbsp;Name:&nbsp;</label>
+                <input type="text" id="name" name="name" class="form-control">
+                <span class="error" id="name-error"></span>
+            </div><br>
+            <div class="form-group">
+                <label for="email">&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;</label>
+                <input type="email" id="email" name="email" class="form-control">
+                <span class="error" id="email-error"></span>
+            </div><br>
+            <div class="form-group">
+                <label for="website">Website:&nbsp;&nbsp;</label>
+                <input type="url" id="website" name="website" class="form-control">
+                <span class="error" id="website-error"></span>
+            </div><br>
+            <div class="form-group" >
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" class="form-control" rows="4"></textarea>
+                <span class="error" id="message-error"></span>
+            </div><br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            var nameField = document.getElementById("name");
+            var emailField = document.getElementById("email");
+            var websiteField = document.getElementById("website");
+            var messageField = document.getElementById("message");
+
+            document.getElementById("name-error").textContent = "";
+            document.getElementById("email-error").textContent = "";
+            document.getElementById("website-error").textContent = "";
+            document.getElementById("message-error").textContent = "";
+            nameField.classList.remove("error-border");
+            emailField.classList.remove("error-border");
+            websiteField.classList.remove("error-border");
+            messageField.classList.remove("error-border");
+
+            if (!nameField.value.trim()) {
+                document.getElementById("name-error").textContent = "This field is required.";
+                nameField.classList.add("error-border");
+                event.preventDefault();
+            }
+
+            if (!emailField.value.trim()) {
+                document.getElementById("email-error").textContent = "A valid email address is required.";
+                emailField.classList.add("error-border");
+                event.preventDefault();
+            }
+
+            if (!websiteField.value.trim()) {
+                document.getElementById("website-error").textContent = "A valid URL is required.";
+                websiteField.classList.add("error-border");
+                event.preventDefault();
+            }
+
+            if (!messageField.value.trim()) {
+                document.getElementById("message-error").textContent = "This field is required.";
+                messageField.classList.add("error-border");
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

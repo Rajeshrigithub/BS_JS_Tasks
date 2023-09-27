@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-7</title>
+    <style>
+        @keyframes trainAnimation {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100%); }
+        }
+        .train {
+            width: 200px;
+            height: 100px;
+            background-image: url('Train.png'); 
+            background-size: cover;
+            animation: trainAnimation 4s linear infinite;
+        }
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .c1{
+            margin: 0;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+ 
+    </style>
+</head>
+<body>
+    <div class="center">
+    <div class="train"></div>
+    <h1 style="color:#000080;">Click the following buttons to handle the animation</h1>
+    <div class="c1">
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button></div>
+
+
+    <script>
+        const train = document.querySelector('.train');
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        let animationId;
+        function startAnimation() {
+            train.style.animationPlayState = 'running';
+        }
+        function stopAnimation() {
+            train.style.animationPlayState = 'paused';
+        }
+        startButton.addEventListener('click', startAnimation);
+        stopButton.addEventListener('click', stopAnimation);
+    </script>
+    </div>
+</body>
+</html>

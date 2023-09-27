@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-8</title>
+    <style>
+        body{
+            color: black;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            background: linear-gradient(190deg,rgba(230, 230, 142, 0.842),rgb(193, 109, 163));
+            align-items: center;
+        }
+        input[type="submit"] {
+            background-color: red;
+            border: 2px solid black;
+            padding: 3px 3px;
+            font-size: 15px;
+            cursor: pointer;
+            width: 90px;
+            border-radius: 10px;
+        }
+
+        .poor {
+            color: red;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <table width="50%" cellpadding="10" cellspacing="0" >
+        <caption style="color:blue;"><h1><b>Registration form</b></h1></caption>
+            <tr>
+                <td><b>First Name</b></td>
+                <td>
+                    <input type="text" size="50%" name="first_name" id="first_name" required>
+                    <span class="poor" id="firstNameError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Last Name</b></td>
+                <td>
+                    <input type="text" size="50%" name="last_name" id="last_name" required>
+                    <span class="poor" id="lastNameError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Email</b></td>
+                <td>
+                    <input type="email" size="50%" name="email" id="email" required>
+                    <span class="poor" id="emailError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Password</b></td>
+                <td>
+                    <input type="password" size="50%" name="password" id="password" required>
+                    <span class="poor" id="passwordError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Re-enter Password</b></td>
+                <td>
+                    <input type="password" size="50%" name="confirm_password" id="confirm_password" required>
+                    <span class="poor" id="confirmPasswordError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Gender</b></td>
+                <td>
+                    <input type="radio" name="gender" value="Male" checked> Male <br>
+                    <input type="radio" name="gender" value="Female"> Female
+                </td>
+            </tr>
+            <tr>
+                <td><b>Age</b></td>
+                <td>
+                    <input type="int" size="50%" name="age" id="age" required>
+                    <span class="poor" id="ageError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Phone Number</b></td>
+                <td>
+                    <input type="tel" size="50%" name="phone_number" id="phone_number" required>
+                    <span class="poor" id="phoneError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Address</b></td>
+                <td>
+                    <textarea name="address" rows="4" cols="48" id="address" required></textarea>
+                    <span class="poor" id="addressError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>State</b></td>
+                <td>
+                    <input type="text" size="50%" name="state" id="state" required>
+                    <span class="poor" id="stateError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Country</b></td>
+                <td>
+                    <select>
+                        <option>Choose your country</option>
+                        <option>United States</option>
+                        <option>Canada</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Languages Known</b></td>
+                <td>
+                    <input type="checkbox" name="languages[]" value="English"> English
+                    <input type="checkbox" name="languages[]" value="Kannada"> Kannada
+                    <input type="checkbox" name="languages[]" value="Hindi"> Hindi
+                    <input type="checkbox" name="languages[]" value="Telugu"> Telugu
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>
+                        <input type="checkbox" checked/> 
+                        Hereby I declare all the given details are true
+                    </label>
+                </td>
+            </tr>
+            <tr>
+               <td colspan="2" style="text-align: right;">
+                   Log in to <a href="https://www.ethnus.com" target="_blank"> Ethnus</a> website
+               </td> 
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" value="Register"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        // JavaScript validation
+        document.getElementById('first_name').addEventListener('blur', function() {
+            var firstName = this.value.trim();
+            var firstNameError = document.getElementById('firstNameError');
+            if (firstName.length < 5) {
+                firstNameError.textContent = 'POOR';
+            } else {
+                firstNameError.textContent = '';
+            }
+        });
+
+        document.getElementById('last_name').addEventListener('blur', function() {
+            var lastName = this.value.trim();
+            var lastNameError = document.getElementById('lastNameError');
+            if (lastName.length < 5) {
+                lastNameError.textContent = 'POOR';
+            } else {
+                lastNameError.textContent = '';
+            }
+        });
+
+        document.getElementById('email').addEventListener('blur', function() {
+            var email = this.value.trim();
+            var emailError = document.getElementById('emailError');
+            if (email.length < 14) {
+                emailError.textContent = 'POOR';
+            } else {
+                emailError.textContent = '';
+            }
+        });
+
+        document.getElementById('password').addEventListener('blur', function() {
+            var password = this.value.trim();
+            var passwordError = document.getElementById('passwordError');
+            if (password.length < 8) {
+                passwordError.textContent = 'POOR';
+            } else {
+                passwordError.textContent = '';
+            }
+        });
+
+        document.getElementById('confirm_password').addEventListener('blur', function() {
+            var confirmPassword = this.value.trim();
+            var password = document.getElementById('password').value.trim();
+            var confirmPasswordError = document.getElementById('confirmPasswordError');
+            if (confirmPassword !== password) {
+                confirmPasswordError.textContent = 'POOR OR MISMATCH';
+            } else {
+                confirmPasswordError.textContent = '';
+            }
+        });
+
+        document.getElementById('age').addEventListener('blur', function() {
+            var age = this.value.trim();
+            var ageError = document.getElementById('ageError');
+            if (age < 18) { // Change 18 to your desired minimum age
+                ageError.textContent = 'POOR';
+            } else {
+                ageError.textContent = '';
+            }
+        });
+
+        document.getElementById('phone_number').addEventListener('blur', function() {
+            var phone_number = this.value.trim();
+            var phoneError = document.getElementById('phoneError');
+            if (phone_number.length < 10) {
+                phoneError.textContent = 'POOR';
+            } else {
+                phoneError.textContent = '';
+            }
+        });
+
+        document.getElementById('address').addEventListener('blur', function() {
+            var address = this.value.trim();
+            var addressError = document.getElementById('addressError');
+            if (address.length < 35) {
+                addressError.textContent = 'POOR';
+            } else {
+                addressError.textContent = '';
+            }
+        });
+
+        document.getElementById('state').addEventListener('blur', function() {
+            var state = this.value.trim();
+            var stateError = document.getElementById('stateError');
+            if (state.length < 35) {
+                stateError.textContent = 'POOR';
+            } else {
+                stateError.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>
